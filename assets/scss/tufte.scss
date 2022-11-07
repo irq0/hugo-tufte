@@ -281,6 +281,14 @@ article p a:link {
     text-shadow: none;
 }
 
+.footnote-reference a:after {
+    content: none;
+    color: #FF8833;
+}
+
+.footnote-reference a:link {
+    color: #FF8833;
+}
 
 
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
@@ -545,4 +553,20 @@ label.marginnote-ind {
     .video {
         width: 90%;
     }
+}
+
+.footnotes-separatator {
+    display: none;
+}
+
+.footnote-definition sup {
+    font-size: 120%;
+}
+
+.footnote-definition {
+    margin-top: 2rem;
+}
+
+.footnotes {
+    margin-top: 2rem;
 }
