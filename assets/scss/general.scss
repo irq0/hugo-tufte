@@ -4,6 +4,79 @@
 /* accomodate a blog-like site. */
 /* ------------------------------------------------------------------------ */
 
+
+@font-face {
+    font-family: "Sudo";
+    src: url("sudo/Webfonts/Sudo-Regular.woff2") format("woff2"),
+	 url("sudo/Webfonts/Sudo-Regular.woff") format("woff"),
+	 url("sudo/Sudo-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Sudo";
+    src: url("sudo/Webfonts/Sudo-Bold.woff2") format("woff2"),
+	 url("sudo/Webfonts/Sudo-Bold.woff") format("woff"),
+	 url("sudo/Sudo-Bold.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Sudo";
+    src: url("sudo/Webfonts/Sudo-Italic.woff2") format("woff2"),
+	 url("sudo/Webfonts/Sudo-Italic.woff") format("woff"),
+	 url("sudo/Sudo-Italic.ttf") format("truetype");
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "Sudo";
+    src: url("sudo/Webfonts/Sudo-BoldItalic.woff2") format("woff2"),
+	 url("sudo/Webfonts/Sudo-BoldItalic.woff") format("woff"),
+	 url("sudo/Sudo-BoldItalic.ttf") format("truetype");
+    font-weight: bold;
+    font-style: italic;
+}
+
+/* When setting the primary font stack, apply it to the Pure grid units along */
+/* with `html`, `button`, `input`, `select`, and `textarea`. Pure Grids use */
+/* specific font stacks to ensure the greatest OS/browser compatibility. */
+html,
+button,
+input,
+select,
+textarea,
+p,
+nav,
+section,
+article,
+header,
+footer,
+.pure-g [class*="pure-u"] {
+    font-family: "et-book", -apple-system, "San Francisco", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+        "Open Sans", "Helvetica Neue", "Lucida Grand", sans-serif;
+}
+
+p {
+    text-align: justify;
+}
+
+code {
+    font-family: "Sudo", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-size: 1.125rem;
+    line-height: 1.6;
+}
+
+.sidenote,
+.marginnote {
+    margin-right: -55%;
+    width: 45%;
+}
+
+
 /* ------------------------------------------------------------------------ */
 /* Generic content, such as the index list pages */
 /* ------------------------------------------------------------------------ */
