@@ -570,3 +570,25 @@ label.marginnote-ind {
 .footnotes {
     margin-top: 2rem;
 }
+
+.content-tags ul {
+    display: inline;
+    font-size: 100%;
+    padding-left: 0;
+}
+
+.content-tags li {
+    display: inline-block;
+    margin-right: 1rem;
+}
+
+.content-tags li::before {
+    content: "•";
+    display: inline-block;
+    margin-right: 2ch;
+    width: 1ch;
+    text-align: center;
+}
+.content-tags li:first-child::before {
+    content: "";
+}

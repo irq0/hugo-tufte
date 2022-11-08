@@ -9,7 +9,8 @@
 <section class="page-list">
 {{ $pgFilter1 := where .Site.RegularPages "Draft" false }}
 {{ $pgFilter2 := where .Site.RegularPages "Params.date" "!=" nil }}
-{{ $pgFilter := $pgFilter1 | intersect $pgFilter2 }}
+{{ $pgFilter3 := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
+{{ $pgFilter := $pgFilter1 | intersect $pgFilter2 | intersect $pgFilter3 }}
 {{ range (.Paginate $pgFilter).Pages }}
   <h2 class="content-title">
   {{ if .IsNode }}
@@ -19,13 +20,22 @@
   {{ end }}
   </h2>
 
-  {{ if .Description }}
-  <p>{{ .Description }}</p>
-  {{ else }}
-  {{ if .Site.Params.showSummary }}
-  <p>{{ truncate 140 .Summary }}</p>
+  {{ if .Params.tags }}
+  <div class="content-tags">
+      Tags:
+      <ul>
+	  {{ range .Params.tags }}
+	  <li><a  href="{{ "/tags/" | absURL }}{{ . | urlize }}">{{ . }}</a></li>
+	  {{ end }}
+      </ul>
+  </div>
   {{ end }}
-  {{ end }}
+
+  <p>{{ truncate 120 " […]" .Summary }}</p>
+  <div class="content-index-actions">
+      <a href="{{ .RelPermalink  }}">Read More…</a>
+  </div>
+
 {{ end }}
 </section>
 
