@@ -21,3 +21,11 @@
     background: transparent;
     color: rgba(65, 70, 75, 1);
 }
+
+.menu li a:hover,
+.menu li a:active,
+.menu li a:focus {
+    background: inherit;
+    color: darkgray;
+}
+

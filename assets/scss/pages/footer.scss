@@ -8,9 +8,8 @@ footer.page-footer{
 footer.page-footer p {
     font-size: 1.2rem;
     margin: 0em;
-    /* light font looked odd on chrome */
-    /*font-weight: lighter;*/
 }
+
 footer.page-footer a {
     color: rgba(65, 70, 75, 1);
     text-decoration: none;
@@ -21,12 +20,14 @@ footer.page-footer hr {
 }
 
 footer.page-footer ul.page-footer-menu {
-	list-style: none;
-	display: block;
-	/*text-align:center;*/
-	margin: 0;
-	padding: 0;
+    list-style: none;
+    display: block;
+    /*text-align:center;*/
+    margin: 0;
+    padding: 0;
+    margin-top: 0.5em;
     width: unset;
+    font-size: 1.2rem;
 }
 
 footer.page-footer ul.page-footer-menu li {
@@ -40,3 +41,15 @@ footer.page-footer ul.page-footer-menu li {
 .copyright p {
     font-size: 90%;
 }
+
+.copyright a {
+    color: rgba(65, 70, 75, 1);
+    text-decoration: none;
+    background: transparent;
+
+}
+
+.copyright a:after {
+    content: "";
+}
+
