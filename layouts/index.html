@@ -2,40 +2,48 @@
 <article id="main" class="home-page">
 {{ partial "brand.html" . }}
 {{ with .Content }}
-  <section>
-  {{ . }}
-  </section>
-{{ end }}
-<section class="page-list">
-{{ $pgFilter1 := where .Site.RegularPages "Draft" false }}
-{{ $pgFilter2 := where .Site.RegularPages "Params.date" "!=" nil }}
-{{ $pgFilter3 := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
-{{ $pgFilter := $pgFilter1 | intersect $pgFilter2 | intersect $pgFilter3 }}
-{{ range (.Paginate $pgFilter).Pages }}
-  <h2 class="content-title">
-  {{ if .IsNode }}
-  <a href="{{ .Permalink }}">{{ .Title}}</a>
-  {{ else }}
-  <a href="{{ .RelPermalink }}">{{ .Title }}{{ if .Draft }}&nbsp;:: Draft{{end}}</a>
-  {{ end }}
-  </h2>
+    <section>
+	{{ . }}
+    </section>
+    {{ end }}
+    <section class="page-list">
+	{{ $pgFilter2 := where .Site.RegularPages "Params.date" "!=" nil }}
+	{{ $pgFilter3 := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
+	{{ $pgFilter := $pgFilter2 | intersect $pgFilter3 }}
+	{{ range (.Paginate $pgFilter).Pages }}
 
-  {{ if .Params.tags }}
-  <div class="content-tags">
-      Tags:
-      <ul>
-	  {{ range .Params.tags }}
-	  <li><a  href="{{ "/tags/" | absURL }}{{ . | urlize }}">{{ . }}</a></li>
-	  {{ end }}
-      </ul>
-  </div>
-  {{ end }}
-
-  <p>{{ truncate 120 " […]" .Summary }}</p>
-  <div class="content-index-actions">
-      <a href="{{ .RelPermalink  }}">Read More…</a>
-  </div>
-
+	<h1 class="content-title">
+            {{ if .IsNode }}
+            <a href="{{ .Permalink }}">{{ .Title}}</a>
+            {{ else }}
+            {{ if .Draft }}🚧👷🏗 {{end}}
+	    <a href="{{ .RelPermalink }}">
+		{{ .Title }}
+	    </a>
+	    {{ if .Draft }}🚧👷🏗 {{end}}
+            {{ end }}
+        </h1>
+        {{ if .Params.tags }}
+	<div class="content-tags">
+	    Tags:
+	    <ul>
+		{{ range .Params.tags }}
+		<li><a  href="{{ "/tags/" | absURL }}{{ . | urlize }}">{{ . }}</a></li>
+		{{ end }}
+	    </ul>
+	</div>
+	{{ end }}
+	<p>
+	    {{ if .Params.emoji }}
+	    <label for="marginnote-{{ .Page.File.UniqueID }}" class="margin-toggle"></label>
+	    <input type="checkbox" id="marginnote-{{.Page.File.UniqueID}}" class="margin-toggle"/>
+	    <span class="marginnote index-emoji">{{ .Params.emoji | emojify }}</span>
+	    {{ end }}
+	    {{ truncate 120 " […]" .Summary }}
+	</p>
+	<div class="content-index-actions">
+	    <a href="{{ .RelPermalink  }}">Read More…</a>
+	</div>
 {{ end }}
 </section>
 
