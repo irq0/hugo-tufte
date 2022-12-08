@@ -1,5 +1,4 @@
 <section>
-  
   <h1 class="content-title">
     {{ if .IsNode }}
     <a href="{{ .Permalink }}">{{ .Title}}</a>
@@ -11,9 +10,8 @@
     {{ if .Params.subtitle }}
       <p class=subtitle>{{ .Params.subtitle }}</p>
     {{ end }}
-    {{ if or (eq .Type "blog") (.Params.meta)  }}
       <span class="content-meta">
-        {{ if .Params.author }}
+          {{ if .Params.author }}
           <span class="author">
               {{ .Params.author }}
 	  </span>
@@ -32,7 +30,6 @@
           {{ range .Params.tags }}
           &nbsp;<a  href="{{ "/tags/" | absURL }}{{ . | urlize }}">{{ . }}</a>
           {{ end }}
-        {{ end }}
       </span>
     {{ end }}
   {{ end }}
