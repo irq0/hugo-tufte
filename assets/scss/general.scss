@@ -171,6 +171,8 @@ table:not(.lntable) {
     width: auto; /* making booktabs style tables the unstyled default in case someone uses Markdown styling */
     /* margin: 0 auto; */
     /* border-spacing: 0px; */
+    border-top: 2px solid #111;
+    border-bottom: 2px solid #111;
 }
 
 table:not(.lntable) tr th {
